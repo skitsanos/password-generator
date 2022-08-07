@@ -1,8 +1,8 @@
-import {Button, Card, Checkbox, Divider, Grid, Input, Slider, Space} from '@arco-design/web-react';
+import {Button, Card, Checkbox, Divider, Grid, Input, Slider} from '@arco-design/web-react';
 import {IconGithub} from '@arco-design/web-react/icon';
-import {useState} from 'react';
 
 import {generate} from 'generate-password';
+import {useState} from 'react';
 
 const Index = () =>
 {
