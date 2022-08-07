@@ -1,0 +1,43 @@
+@import '@arco-design/web-react/dist/css/arco.css';
+
+@font-family: 'IBM Plex Sans', sans-serif;
+@font-size-body: 16px;
+@page-header-weight-title-text: 300;
+
+body {
+  font-family: @font-family;
+  background: var(--color-fill-2);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.app{
+  min-width: 600px;
+
+  .arco-col{
+    line-height: 46px;
+  }
+}
+
+.arco-page-header-title {
+  text-transform: uppercase;
+}
+
+
+.app-layout {
+  background: var(--color-fill-2);
+}
+
+.h-box{
+  display: flex;
+}

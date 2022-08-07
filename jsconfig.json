@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@": ["./*"],
+            "umi": ["./.umi/exports"]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

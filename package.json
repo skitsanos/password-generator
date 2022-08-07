@@ -1,0 +1,21 @@
+{
+    "name": "password-generator",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/skitsanos/password-generator.git",
+    "author": "skitsanos <info@skitsanos.com>",
+    "license": "MIT",
+    "scripts": {
+        "postinstall": "umi setup",
+        "dev": "umi dev",
+        "build": "umi build",
+        "deploy": "netlfy deploy"
+    },
+    "dependencies": {
+        "@arco-design/web-react": "^2.38.1",
+        "generate-password": "^1.7.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "umi": "^4.0.11"
+    }
+}
