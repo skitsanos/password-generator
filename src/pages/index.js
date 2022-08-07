@@ -62,7 +62,7 @@ const Index = () =>
                        readOnly={true}
                        value={password}/>
                 <Button type={'primary'} size={'large'}
-                        onClick={onGenerate}>Reload</Button>
+                        onClick={onGenerate}>Generate</Button>
             </div>
         </Card>
     </>;
