@@ -1,8 +1,8 @@
-import {Button, Card, Checkbox, Divider, Grid, Input, Slider} from '@arco-design/web-react';
-import {IconGithub} from '@arco-design/web-react/icon';
+import {Button, Card, Checkbox, Divider, Grid, Input, Slider, Space} from '@arco-design/web-react';
+import {IconCopy, IconGithub, IconLoop} from '@arco-design/web-react/icon';
 
 import {generate} from 'generate-password';
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 
 const Index = () =>
 {
@@ -12,6 +12,8 @@ const Index = () =>
 
     const [password, setPassword] = useState(null);
 
+    const refPassword = useRef();
+
     const onGenerate = () =>
     {
         setPassword(generate({
@@ -19,6 +21,19 @@ const Index = () =>
             numbers: checkNumbers,
             symbols: checkSymbols
         }));
+    };
+
+    const copyToClipboard = () =>
+    {
+        const {value} = refPassword.current.dom;
+
+        navigator.permissions.query({name: 'clipboard-write'}).then(result =>
+        {
+            if (result.state === 'granted' || result.state === 'prompt')
+            {
+                navigator.clipboard.writeText(value);
+            }
+        });
     };
 
     return <>
@@ -59,19 +74,28 @@ const Index = () =>
 
             <div className={'h-box'}>
                 <Input placeholder={'Click Generate'}
+                       ref={refPassword}
                        size={'large'}
                        readOnly={true}
                        value={password}/>
-                <Button type={'primary'}
-                        size={'large'}
-                        onClick={onGenerate}>Generate</Button>
+                <Space>
+                    <Button type={'primary'}
+                            size={'large'}
+                            icon={<IconLoop/>}
+                            onClick={onGenerate}>Generate</Button>
+
+                    <Button icon={<IconCopy/>}
+                            size={'large'}
+                            onClick={copyToClipboard}>Copy</Button>
+                </Space>
             </div>
 
             <Divider/>
 
-            <div className={'h-box'} style={{
-                justifyContent: 'space-between'
-            }}>
+            <div className={'h-box'}
+                 style={{
+                     justifyContent: 'space-between'
+                 }}>
                 Designed by Skitsanos. <Button type={'text'}
                                                icon={<IconGithub/>}
                                                href={'https://github.com/skitsanos/password-generator'}>Sources</Button>
