@@ -1,4 +1,5 @@
 import {Button, Card, Checkbox, Divider, Grid, Input, Slider, Space} from '@arco-design/web-react';
+import {IconGithub} from '@arco-design/web-react/icon';
 import {useState} from 'react';
 
 import {generate} from 'generate-password';
@@ -61,8 +62,19 @@ const Index = () =>
                        size={'large'}
                        readOnly={true}
                        value={password}/>
-                <Button type={'primary'} size={'large'}
+                <Button type={'primary'}
+                        size={'large'}
                         onClick={onGenerate}>Generate</Button>
+            </div>
+
+            <Divider/>
+
+            <div className={'h-box'} style={{
+                justifyContent: 'space-between'
+            }}>
+                Designed by Skitsanos. <Button type={'text'}
+                                               icon={<IconGithub/>}
+                                               href={'https://github.com/skitsanos/password-generator'}>Sources</Button>
             </div>
         </Card>
     </>;
