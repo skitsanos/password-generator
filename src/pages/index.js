@@ -1,4 +1,4 @@
-import {Button, Card, Checkbox, Divider, Grid, Input, Slider, Space} from '@arco-design/web-react';
+import {Button, Card, Checkbox, Divider, Grid, Input, Slider, Space, Notification} from '@arco-design/web-react';
 import {IconCopy, IconGithub, IconLoop} from '@arco-design/web-react/icon';
 
 import {generate} from 'generate-password';
@@ -27,13 +27,22 @@ const Index = () =>
     {
         const {value} = refPassword.current.dom;
 
-        navigator.permissions.query({name: 'clipboard-write'}).then(result =>
+        if (value)
         {
-            if (result.state === 'granted' || result.state === 'prompt')
+            navigator.permissions.query({name: 'clipboard-write'}).then(result =>
             {
-                navigator.clipboard.writeText(value);
-            }
-        });
+                if (result.state === 'granted' || result.state === 'prompt')
+                {
+                    navigator.clipboard.writeText(value).then(() =>
+                    {
+                        Notification.info({
+                            title: 'Generator',
+                            content: 'Copied to clipboard'
+                        });
+                    });
+                }
+            });
+        }
     };
 
     return <>
