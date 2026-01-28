@@ -1,6 +1,6 @@
 {
     "name": "password-generator",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "main": "index.js",
     "repository": "https://github.com/skitsanos/password-generator.git",
     "author": "skitsanos <info@skitsanos.com>",
@@ -12,10 +12,9 @@
         "deploy": "netlfy deploy"
     },
     "dependencies": {
-        "@arco-design/web-react": "^2.38.1",
-        "generate-password": "^1.7.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "umi": "^4.0.11"
+        "@arco-design/web-react": "^2.66.10",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "umi": "^4.6.25"
     }
 }
